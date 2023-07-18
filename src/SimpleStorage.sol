@@ -12,6 +12,7 @@ contract SimpleStorage {
     struct Person {
         uint256 favoriteNumber;
         string name;
+        bool likesPizza;
     }
     // uint256[] public anArray;
     Person[] public listOfPeople;
@@ -26,8 +27,12 @@ contract SimpleStorage {
         return myFavoriteNumber;
     }
 
-    function addPerson(string memory _name, uint256 _favoriteNumber) public {
-        listOfPeople.push(Person(_favoriteNumber, _name));
+    function addPerson(
+        string memory _name,
+        uint256 _favoriteNumber,
+        bool _likesPizza
+    ) public {
+        listOfPeople.push(Person(_favoriteNumber, _name, _likesPizza));
         nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 }
